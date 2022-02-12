@@ -15,6 +15,7 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 router.get("/signup", isLoggedOut, (req, res) => {
+  console.log("LALALALAAL")
   res.render("user/signup");
 });
 
@@ -32,18 +33,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
   //     errorMessage: "Your password needs to be at least 8 characters long.",
   //   });
   // }
-
-  //   ! This use case is using a regular expression to control for special characters and min length
-  /*
-  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
-
-  if (!regex.test(password)) {
-    return res.status(400).render("signup", {
-      errorMessage:
-        "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
-    });
-  }
-  */
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username }).then((found) => {
@@ -67,8 +56,9 @@ router.post("/signup", isLoggedOut, (req, res) => {
       })
       .then((user) => {
         // Bind the user to the session object
+        // console.log("USER::", user)
         req.session.user = user;
-        res.redirect("/");
+        res.render("user/login", user);
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -104,11 +94,11 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
   // Here we use the same logic as above
   // - either length based parameters or we check the strength of a password
-  if (password.length < 8) {
-    return res.status(400).render("user/login", {
-      errorMessage: "Your password needs to be at least 8 characters long.",
-    });
-  }
+  // if (password.length < 8) {
+  //   return res.status(400).render("user/login", {
+  //     errorMessage: "Your password needs to be at least 8 characters long.",
+  //   });
+  // }
 
   // Search the database for a user with the username submitted in the form
   User.findOne({ username })
@@ -128,8 +118,8 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             .render("user/login", { errorMessage: "Wrong credentials." });
         }
         req.session.user = user;
-        // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
+        return res.redirect("/auth/profile");
       });
     })
 
