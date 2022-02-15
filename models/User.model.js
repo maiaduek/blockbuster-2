@@ -14,10 +14,12 @@ const userSchema = new Schema(
       unique: true
     },
     favoriteMovies: [],
-    favoriteSnacks: {
-      type: Types.ObjectId,
-      ref: "Snack"
-    }
+    favoriteSnacks: [
+      {
+        type: Types.ObjectId,
+        ref: "Snack"
+      }
+    ]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

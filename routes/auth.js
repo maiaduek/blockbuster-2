@@ -9,6 +9,7 @@ const saltRounds = 10;
 
 // Require the User model in order to interact with the database
 const User = require("../models/User.model");
+const Snack = require("../models/Snack.model")
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -58,7 +59,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         // Bind the user to the session object
         // console.log("USER::", user)
         req.session.user = user;
-        res.render("user/login", user);
+        res.render("user/profile", {user: user});
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -141,5 +142,32 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
+router.get("/profile", (req, res) => {
+  console.log('THIS IS SESSION', req.session)
+  User.findById(req.session.user)
+  .populate('favoriteSnacks')
+  .then(foundUser => {
+    console.log("RESULTS::", foundUser)
+    res.render("user/profile", {user: foundUser, snacks: foundUser.favoriteSnacks});
+  })
+  .catch(err => {
+    console.log("ERROR::", err)
+  })
+});
+
+router.post('/delete/:id', (req, res) => {
+  console.log("REQ PARAMS ID DELETEING::", req.params.id)
+  Snack.findByIdAndRemove(req.params.id)
+  .then(results => {
+    console.log("RESULTS DELETING::", results)
+    res.redirect("/auth/profile")
+  })
+  .catch(err => {
+    console.log("ERROR DELETING SNACK::", err)
+  })
+})
+
+
 
 module.exports = router;

@@ -1,3 +1,23 @@
-<h1>{{this.username}}'s' profile</h1>
+<h1>{{user.username}}'s profile</h1>
+<p>Favorite Movies:</p>
+{{#each this.favoriteMovies}}
+<ul>
+  <li>{{this}}</li>
+</ul>
+{{/each}}
+
+<p>Favorite Snacks:</p>
+{{#each snacks}}
+<ul>
+  <li>{{this.name}}</li>
+  <form action="/auth/delete/{{this._id}}" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+</ul>
+{{/each}}
+
+
+
+<a href="/add-snack">Add Snacks</a><br>
 
 <a href="/auth/logout">Log out</a>
