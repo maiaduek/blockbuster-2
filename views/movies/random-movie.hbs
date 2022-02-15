@@ -1,0 +1,25 @@
+<h1>random movie!</h1>
+
+{{#each movies}}
+<h4>Title:</h4>
+<p>{{title}}</p> <br>
+
+<h4>Year:</h4>
+<p>{{year}}</p><br>
+
+<h4>Rating:</h4>
+<p>{{imdb_rating}}</p><br>
+
+<h4>Runtime:</h4>
+<p>{{runtime}} mins</p><br>
+
+<h4>Genres:</h4>
+{{#each genres}}
+<p>{{this}}, </p>
+{{/each}}
+
+<h4>Starring:</h4>
+{{#each stars}}
+<p>{{this}}, </p>
+{{/each}}
+{{/each}}
