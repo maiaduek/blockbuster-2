@@ -64,3 +64,10 @@ select {
   margin: 5px;
   color: #ecd610;
 }
+
+.movie-img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+}

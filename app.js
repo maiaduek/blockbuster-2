@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   if (req.session.user) {
     console.log("SESSION::", req.session)
     User.findById(req.session.user).then((user) => {
-      req.app.locals.globalUser = user.username;
+      req.app.locals.globalUser = user?.username;
       next();
     });
   } else {

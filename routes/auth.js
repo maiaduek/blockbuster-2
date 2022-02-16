@@ -148,7 +148,7 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  // console.log('THIS IS SESSION', req.session)
+  console.log('THIS IS SESSION', req.session)
   User.findById(req.session.user)
   .populate('favoriteSnacks')
   .then(foundUser => {
@@ -179,7 +179,9 @@ router.post("/edit-user", (req, res) => {
 })
 
 router.post('/delete', (req, res) => {
-  console.log("REQQQ:::",req.session.user)
+  // console.log("REQQQ:::",req.session.user)
+  // req.app.locals.globalUser = null;
+
   User.findByIdAndRemove(req.session.user)
   .then(results => {
     console.log("DELETED USER:::", results)
