@@ -1,33 +1,38 @@
 <h1>{{user.username}}'s profile</h1>
 <a href="/auth/edit-user">Edit Username</a>
 
+<div id="profile-info">
+  <div id="movies-wrapper">
+    <div id="fav-movies-wrapper">
+      <p>Favorite Movies:</p>
+      {{#each user.favoriteMovies}}
+      <ul>
+        <li>{{this}}</li>
+        <a href="/movie-api/delete-movie/{{this}}">Remove Movie</a>
+      </ul>
+      {{/each}}
+    </div>
 
-<p>Favorite Movies:</p>
-{{#each user.favoriteMovies}}
-<ul>
-  <li>{{this}}</li>
-  <form method="POST" action="/auth/delete-favorite-movie">
-    <button type="submit">Remove Movie</button>
-  </form> 
-</ul>
-{{/each}}
+    <a href="/movie-api/random-movies">Generate 20 random movies</a><br><br>
+    <a href="/movie-api/trending-movies">See trending movies and shows</a>
+  </div>
 
-<a href="/movie-api/random-movies">Generate 20 random movies</a><br>
-<a href="/movie-api/trending-movies">See trending movies and shows</a>
-
-<p>Favorite Snacks:</p>
-{{#each snacks}}
-<ul>
-  <li>{{this.name}}</li>
-  <form action="/auth/delete/{{this._id}}" method="POST">
-    <button type="submit">Delete</button>
-  </form>
-</ul>
-{{/each}}
+  <div id="snacks-wrapper">
+    <p>Favorite Snacks:</p> 
+    {{#each snacks}}
+    <ul>
+      <li>{{this.name}}</li>
+      <form action="/auth/delete/{{this._id}}" method="POST">
+        <button type="submit">Delete</button>
+      </form>
+    </ul>
+    {{/each}}
+    <a href="/add-snack">Add Snacks</a><br>
+  </div>
+</div>
 
 
 
-<a href="/add-snack">Add Snacks</a><br>
 
 <a href="/auth/logout">Log out</a>
 

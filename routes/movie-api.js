@@ -100,6 +100,17 @@ const User = require("../models/User.model");
 //   // console.log("REQ SESSION USER FROM DEETS PG:::", req.session.user)
 // })
 
+// router.get('/delete-movie/:movieName', (req, res) => {
+//   User.findByIdAndUpdate(req.session.user, {
+//     $pull: {favoriteMovies: req.params.movieName}
+//   }, {new: true})
+//   .then(founduser => {
+//     console.log("FOUND USER:::", founduser)
+//     res.redirect("/auth/profile")
+//   })
+//   .catch(err => console.log(err))
+// })
+
 
 
 module.exports = router;

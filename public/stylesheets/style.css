@@ -1,12 +1,66 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: rgb(106, 106, 238);
+  color: #ecd610;
+
 }
 
 a {
-  color: #00b7ff;
+  color: #ecd610;
+  font-weight: bold;
 }
 
 h1 {
   color: 15px;
+}
+
+.clickable {
+  padding: 5px;
+  border: 1px solid blue;
+  background-color: blue;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: blue;
+  color: #ecd610;
+  border: 1px solid blue;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+#profile-info {
+  display: flex;
+  flex-direction: row;
+}
+
+#movies-wrapper {
+  padding: 20px;
+  margin: 30px;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+#snacks-wrapper {
+  padding: 20px;
+  margin: 30px;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+input {
+  background-color: rgb(148, 148, 219);
+  margin: 5px;
+  color: #ecd610;
+
+}
+
+select {
+  background-color: rgb(148, 148, 219);
+  margin: 5px;
+  color: #ecd610;
 }

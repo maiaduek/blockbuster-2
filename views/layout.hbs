@@ -11,6 +11,16 @@
 
    <body>
 
+      <nav>
+      {{#if globalUser}}
+        <p>Hello, {{globalUser}}</p>
+        <a href="/auth/logout" class="clickable">Log out</a>
+
+      {{else}}
+        <a href="/auth/login" class="clickable">Log in</a>
+        <a href="/auth/signup" class="clickable">Create an account</a>
+      {{/if}}
+    </nav>
       {{{body}}}
 
       <script src="/js/script.js"></script>
