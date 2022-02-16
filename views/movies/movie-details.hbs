@@ -1,8 +1,9 @@
-<h1>random movie!</h1>
+<h1>MOVIE DEETS</h1>
 
-{{#each movies}}
-<h4>Title:</h4>
-<p>{{title}}</p> <br>
+<h3>{{this.title}}</h3>
+<form method="POST" action="/movie-api/{{imdb_id}}">
+  <button type="submit">Add To Favorites</button>
+</form>
 
 <h4>Year:</h4>
 <p>{{year}}</p><br>
@@ -22,4 +23,5 @@
 {{#each stars}}
 <p>{{this}}, </p>
 {{/each}}
-{{/each}}
+
+<a href="/auth/profile">Back to Profile</a>

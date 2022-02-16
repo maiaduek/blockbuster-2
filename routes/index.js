@@ -20,7 +20,7 @@ router.get('/add-snack', isLoggedIn, (req, res) => {
 })
 
 router.post('/add-snack', isLoggedIn, (req, res) => {
-  console.log("REQ.USER ID:::", req.user)
+  // console.log("REQ.USER ID:::", req.user)
   Snack.create({
     name: req.body.name,
     category: req.body.category,
@@ -33,12 +33,15 @@ router.post('/add-snack', isLoggedIn, (req, res) => {
       new: true
     })
     .then(updatedUser => {
-      console.log("UPDATED USER:::", updatedUser)
+      // console.log("UPDATED USER:::", updatedUser)
       res.redirect('/auth/profile')
     })
     .catch(err => console.log("ERR CREATING SNACK::", err))
   })
 })
+
+
+
 
 
 module.exports = router;

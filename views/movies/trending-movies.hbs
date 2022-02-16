@@ -1,0 +1,9 @@
+<h1>TRENDING</h1>
+
+{{#each movies}}
+  <ul>
+    <li><a href="/movie-api/{{imdb_id}}">{{title}}</a> , {{year}}</li>
+  </ul>
+{{/each}}
+
+<a href="/auth/profile">Back to Profile</a>

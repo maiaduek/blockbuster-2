@@ -1,14 +1,19 @@
 <h1>{{user.username}}'s profile</h1>
+<a href="/auth/edit-user">Edit Username</a>
 
 
 <p>Favorite Movies:</p>
-{{#each this.favoriteMovies}}
+{{#each user.favoriteMovies}}
 <ul>
   <li>{{this}}</li>
+  <form method="POST" action="/auth/delete-favorite-movie">
+    <button type="submit">Remove Movie</button>
+  </form> 
 </ul>
 {{/each}}
 
-<a href="/movie-api/random-movie">Pick from 20 random movies!</a>
+<a href="/movie-api/random-movies">Generate 20 random movies</a><br>
+<a href="/movie-api/trending-movies">See trending movies and shows</a>
 
 <p>Favorite Snacks:</p>
 {{#each snacks}}
@@ -25,3 +30,7 @@
 <a href="/add-snack">Add Snacks</a><br>
 
 <a href="/auth/logout">Log out</a>
+
+<form method="POST" action="/auth/delete">
+  <button type="submit">Delete User</button>
+</form>

@@ -144,11 +144,11 @@ router.get("/logout", isLoggedIn, (req, res) => {
 });
 
 router.get("/profile", (req, res) => {
-  console.log('THIS IS SESSION', req.session)
+  // console.log('THIS IS SESSION', req.session)
   User.findById(req.session.user)
   .populate('favoriteSnacks')
   .then(foundUser => {
-    console.log("RESULTS::", foundUser)
+    // console.log("RESULTS::", foundUser)
     res.render("user/profile", {user: foundUser, snacks: foundUser.favoriteSnacks});
   })
   .catch(err => {
@@ -156,11 +156,39 @@ router.get("/profile", (req, res) => {
   })
 });
 
+router.get("/edit-user", (req, res) => {
+  User.findById(req.session.user)
+  .then(foundUser => {
+    res.render('user/edit-user', {username: foundUser.username})
+  })
+  .catch(err => console.log(err))
+})
+
+router.post("/edit-user", (req, res) => {
+  User.findByIdAndUpdate(req.session.user, {
+    username: req.body.username
+  })
+  .then(results => {
+    res.redirect("/auth/profile")
+  })
+  .catch(err => console.log(err))
+})
+
+router.post('/delete', (req, res) => {
+  console.log("REQQQ:::",req.session.user)
+  User.findByIdAndRemove(req.session.user)
+  .then(results => {
+    console.log("DELETED USER:::", results)
+    res.redirect('/auth/logout')
+  })
+  .catch(err => console.log(err))
+})
+
 router.post('/delete/:id', (req, res) => {
   console.log("REQ PARAMS ID DELETEING::", req.params.id)
   Snack.findByIdAndRemove(req.params.id)
   .then(results => {
-    console.log("RESULTS DELETING::", results)
+    // console.log("RESULTS DELETING::", results)
     res.redirect("/auth/profile")
   })
   .catch(err => {
