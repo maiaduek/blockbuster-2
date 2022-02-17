@@ -1,27 +1,37 @@
-<h1>MOVIE DEETS</h1>
-
-<h3>{{this.title}}</h3>
+<h1>{{this.title}}</h1>
 <form method="POST" action="/movie-api/{{imdb_id}}">
   <button type="submit">Add To Favorites</button>
 </form>
 
-<h4>Year:</h4>
-<p>{{year}}</p><br>
+<div class="inline">
+  <h4>Year: </h4>
+  <p class="info"> {{year}}</p><br>
+</div>
 
-<h4>Rating:</h4>
-<p>{{imdb_rating}}</p><br>
+<div class="inline">
+  <h4>Rating:</h4>
+  <p class="info">{{imdb_rating}}</p><br>
+</div>
 
-<h4>Runtime:</h4>
-<p>{{runtime}} mins</p><br>
+<div class="inline">
+  <h4>Runtime:</h4>
+  <p class="info">{{runtime}} mins</p><br>
+</div>
 
-<h4>Genres:</h4>
-{{#each genres}}
-<p>{{this}}, </p>
-{{/each}}
+<div class="inline">
+  <h4>Genres:</h4>
+  {{#each genres}}
+    <p class="info">{{this}}, </p>
+  {{/each}}
+</div>
 
-<h4>Starring:</h4>
-{{#each stars}}
-<p>{{this}}, </p>
-{{/each}}
+<div class="inline">
+  <h4>Starring:</h4>
+  {{#each stars}}
+    <p class="info">{{this}}, </p>
+  {{/each}}
+</div>
 
-<a href="/auth/profile">Back to Profile</a>
+<br>
+<br>
+<a href="/auth/profile" class="clickable">Back to Profile</a>

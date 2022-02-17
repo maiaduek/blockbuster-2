@@ -14,8 +14,13 @@
       <nav>
       {{#if globalUser}}
         <p>Hello, {{globalUser}}</p>
-        <a href="/auth/logout" class="clickable">Log out</a>
-
+        <nav class="nav">
+         <a href="/auth/logout" class="clickable">Log out</a>
+         <a href="/auth/edit-user" class="clickable">Edit Username</a>
+         <form method="POST" action="/auth/delete">
+               <button class="delete-user" type="submit">Delete User</button>
+         </form>
+         </nav>
       {{else}}
          <h3>Let's get started:</h3><br>
         <a href="/auth/login" class="clickable">Log in</a>

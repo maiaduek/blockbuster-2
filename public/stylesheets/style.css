@@ -1,13 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(106, 106, 238);
-  color: #ecd610;
+  background-color: rgb(216, 208, 162);
+  color: #6b673f;
 
 }
 
 a {
-  color: #ecd610;
+  color: #6b673f;
   font-weight: bold;
 }
 
@@ -18,56 +18,116 @@ h1 {
 .clickable {
   padding: 5px;
   border: 1px solid blue;
-  background-color: blue;
+  background: rgba(79, 120, 233, 0.3);
+  color: #f8f8f5;
   margin: 5px;
   border-radius: 5px;
+  font-weight: lighter;
+  text-decoration: none;
+  font-size: 12px;
+  width: fit-content;
 }
 
 button {
-  background-color: blue;
-  color: #ecd610;
+  background: rgba(79, 120, 233, 0.3);
+  color: #f8f8f5;
   border: 1px solid blue;
   border-radius: 5px;
   margin: 5px;
-  padding: 5px;
-  font-weight: bold;
+  padding: 6px;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #9494db;
 }
 
 #profile-info {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.movie-delete-ul{
+  display: flex;
+  flex-direction: column;
 }
 
 #movies-wrapper {
-  padding: 20px;
+  padding: 20px 40px;
   margin: 30px;
   border: 1px solid blue;
   border-radius: 5px;
 }
 
 #snacks-wrapper {
-  padding: 20px;
+  padding: 20px 40px;
   margin: 30px;
   border: 1px solid blue;
   border-radius: 5px;
 }
 
+.delete-user {
+  background: rgba(247, 5, 5, 0.3);
+  color: #f8f8f5;
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 5px;
+  margin: 5px;
+  padding: 6px;
+  font-weight: lighter;
+}
+
 input {
   background-color: rgb(148, 148, 219);
-  margin: 5px;
-  color: #ecd610;
-
+  margin: 15px;
+  color: #ffffff;
+  border-radius: 5px;
 }
 
 select {
-  background-color: rgb(148, 148, 219);
+  background-color: #9494db;
   margin: 5px;
-  color: #ecd610;
+  color: #6b673f;
 }
 
 .movie-img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 95%;
+}
+
+.inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.info {
+  margin-left: 5px;
+}
+
+.about {
+  font-weight: lighter;
+}
+
+.title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #9494db;
+}
+
+.api-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.api {
+  height: fit-content;
 }

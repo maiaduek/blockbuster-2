@@ -1,11 +1,10 @@
-<h1>Random movies!</h1>
+<h1>Random movies</h1>
 
 {{#each movies}}
-  <div>
-    <h4>Title:</h4>
-    <a href="/movie-api/{{imdb_id}}">{{title}}</a> 
-  </div>
+  <ul>
+    <li><a href="/movie-api/{{imdb_id}}">{{title}}</a> , {{year}}</li>
+  </ul>
 {{/each}}
 <br>
 <br>
-<a href="/auth/profile">Back to Profile</a>
+<a href="/auth/profile"  class="clickable">Back to Profile</a>
