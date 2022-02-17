@@ -1,6 +1,6 @@
 <form action="/add-snack" method="POST">
   <input type="text" placeholder="Snack Name" name="name"/><br>
-  <select name="category" class="input" multiple>
+  <select name="category" class="select" multiple>
     <option>Cooked Food</option>
     <option>Popcorn</option>
     <option>Hard Candies</option>
@@ -9,6 +9,8 @@
     <option>Cookies</option>
   </select><br>
   <br>
-  <button type="submit">Add Snack</button>
-
+  <div class="add-snack-pg-buttons">
+    <button type="submit">Add Snack</button>
+    <a href="/auth/profile" class="clickable">Back to Profile</a>
+  </div>
 </form>

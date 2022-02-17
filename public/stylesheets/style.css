@@ -17,26 +17,39 @@ h1 {
 
 .clickable {
   padding: 5px;
-  border: 1px solid blue;
   background: rgba(79, 120, 233, 0.3);
   color: #f8f8f5;
   margin: 5px;
   border-radius: 5px;
   font-weight: lighter;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 14px;
   width: fit-content;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.clickable:hover {
+  border: 1px solid #0004e0;
+  color: #0004e0;
+  box-shadow: 5px 5px 10px #888888;
 }
 
 button {
   background: rgba(79, 120, 233, 0.3);
   color: #f8f8f5;
-  border: 1px solid blue;
+  border: none;
   border-radius: 5px;
   margin: 5px;
   padding: 6px;
   font-weight: lighter;
-  font-size: 12px;
+  font-size: 14px;
+  box-shadow: 5px 5px 5px #888888;;
+}
+
+button:hover {
+  border: 1px solid #0004e0;
+  color: #0004e0;
+  box-shadow: 5px 5px 10px #888888;
 }
 
 .nav {
@@ -61,21 +74,22 @@ button {
 #movies-wrapper {
   padding: 20px 40px;
   margin: 30px;
-  border: 1px solid blue;
   border-radius: 5px;
+  background-color: rgba(238, 232, 208, 0.3);
+  box-shadow: 5px 10px 8px #888888;;
 }
 
 #snacks-wrapper {
   padding: 20px 40px;
   margin: 30px;
-  border: 1px solid blue;
   border-radius: 5px;
+  background-color: rgba(238, 232, 208, 0.3);
+  box-shadow: 5px 10px 8px #888888;;
 }
 
 .delete-user {
   background: rgba(247, 5, 5, 0.3);
   color: #f8f8f5;
-  border: 1px solid rgb(255, 0, 0);
   border-radius: 5px;
   margin: 5px;
   padding: 6px;
@@ -100,6 +114,7 @@ select {
   margin-left: auto;
   margin-right: auto;
   width: 95%;
+  border-radius: 5px;
 }
 
 .inline {
@@ -119,8 +134,12 @@ select {
 }
 
 .title {
+  font-size: 36px;
   padding-bottom: 15px;
   border-bottom: 1px solid #9494db;
+  text-align: center;
+  padding: 15px;
+  /* width: 300px; */
 }
 
 .api-wrapper {
@@ -130,4 +149,22 @@ select {
 
 .api {
   height: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #888888;
+  background-color: rgba(238, 232, 208, 0.3);
+
+}
+
+.select {
+  background-color: rgb(148, 148, 219);
+  margin: 15px;
+  border-radius: 5px;
+  margin-left: 15px;
+}
+
+.add-snack-pg-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
 }
