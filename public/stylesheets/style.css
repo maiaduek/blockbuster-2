@@ -57,6 +57,10 @@ button:hover {
   flex-direction: row;
   padding-bottom: 15px;
   border-bottom: 1px solid #9494db;
+  background:rgb(148, 148, 219, 0.3);
+  align-items: center;
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 #profile-info {
@@ -115,6 +119,7 @@ select {
   margin-right: auto;
   width: 95%;
   border-radius: 5px;
+  box-shadow: 5px 10px 10px #888888;;
 }
 
 .inline {
