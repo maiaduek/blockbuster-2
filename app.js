@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 const projectName = "blockbuster-2";
 const capitalized = (string) => string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
+// app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 
 // 👇 Start handling routes here
